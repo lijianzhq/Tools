@@ -9,6 +9,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Common;
+
 namespace ChangeFileEncoding
 {
     public partial class MainForm : Form

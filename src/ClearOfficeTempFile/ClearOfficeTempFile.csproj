@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{539F4E1D-C5FC-4BEE-935D-8C13F2E497BE}</ProjectGuid>
+    <ProjectGuid>{EAFE43DE-9483-4073-B2CE-36FA4ED9EDFD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChangeFileCode</RootNamespace>
-    <AssemblyName>ChangeFileCode</AssemblyName>
+    <RootNamespace>ClearOfficeTempFile</RootNamespace>
+    <AssemblyName>ClearOfficeTempFile</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,15 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DreamCube.Foundation.Log, Version=1.0.0.0, Culture=neutral, PublicKeyToken=231623ac3bf3e7d5, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="DreamCube.Foundation.Log">
       <HintPath>..\Imports\DreamCube.Foundation.Log.dll</HintPath>
     </Reference>
-    <Reference Include="DreamCube.Foundation.Trace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=231623ac3bf3e7d5, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="DreamCube.Foundation.Trace">
       <HintPath>..\Imports\DreamCube.Foundation.Trace.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,9 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EncodingConverter.cs" />
-    <Compile Include="ConvertedEventArgs.cs" />
-    <Compile Include="ConvertFileEncodingOperator.cs" />
+    <Compile Include="ClearOfficeTempFileOperator.cs" />
+    <Compile Include="ClearedEventArgs.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,7 +73,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -96,7 +91,7 @@
     <Content Include="config\LogConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="批量转换文件编码格式的工具.txt" />
+    <Content Include="批量删除office的临时文件工具.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 
+using Common;
 using DreamCube.Foundation.Log;
 
 namespace ChangeFileEncoding
@@ -15,7 +16,7 @@ namespace ChangeFileEncoding
         /// <summary>
         /// 依赖文件操作对象
         /// </summary>
-        private FileOperator FileOperator;
+        private ConvertFileEncodingOperator FileOperator;
 
         /// <summary>
         /// 完成编码一个文件上报的事件
@@ -41,7 +42,7 @@ namespace ChangeFileEncoding
             this.Path = path;
             this.FileType = fileType;
             this.TargetEncoding = targetEncoding;
-            this.FileOperator = new FileOperator();
+            this.FileOperator = new ConvertFileEncodingOperator();
             this.FileOperator.Exception += FileOperator_Exception;
             this.FileOperator.Converted += FileOperator_Converted;
         }

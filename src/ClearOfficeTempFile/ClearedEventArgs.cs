@@ -4,19 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChangeFileEncoding
+namespace ClearOfficeTempFile
 {
-    class ExceptionEventArgs : EventArgs
+    class ClearedEventArgs : EventArgs
     {
         /// <summary>
-        /// 异常对象
+        /// 移除结果
         /// </summary>
-        public Exception Ex { get; set; }
-
-        /// <summary>
-        /// 异常信息
-        /// </summary>
-        public String Msg { get; set; }
+        public Boolean Result { get; set; }
 
         /// <summary>
         /// 转换的文件路径

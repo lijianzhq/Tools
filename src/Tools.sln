@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeFileEncoding", "ChangeFileEncoding\ChangeFileEncoding.csproj", "{539F4E1D-C5FC-4BEE-935D-8C13F2E497BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClearOfficeTempFile", "ClearOfficeTempFile\ClearOfficeTempFile.csproj", "{EAFE43DE-9483-4073-B2CE-36FA4ED9EDFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{1FD1BFF9-A1D9-4584-A703-3FFD10E1461F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{539F4E1D-C5FC-4BEE-935D-8C13F2E497BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{539F4E1D-C5FC-4BEE-935D-8C13F2E497BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{539F4E1D-C5FC-4BEE-935D-8C13F2E497BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAFE43DE-9483-4073-B2CE-36FA4ED9EDFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAFE43DE-9483-4073-B2CE-36FA4ED9EDFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAFE43DE-9483-4073-B2CE-36FA4ED9EDFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAFE43DE-9483-4073-B2CE-36FA4ED9EDFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FD1BFF9-A1D9-4584-A703-3FFD10E1461F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FD1BFF9-A1D9-4584-A703-3FFD10E1461F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FD1BFF9-A1D9-4584-A703-3FFD10E1461F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FD1BFF9-A1D9-4584-A703-3FFD10E1461F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
