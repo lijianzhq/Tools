@@ -62,7 +62,9 @@ namespace ClearOfficeTempFile
                 {
                     try
                     {
-                        System.IO.File.Delete(item);
+                        //System.IO.File.Delete(item);
+                        //采用移回到回收站的方案
+                        FileOperator.RemoveFileToRecycleBin(item);
                         UpdateoDataGrid(item, "remove success!");
                     }
                     catch (Exception ex)
@@ -105,7 +107,8 @@ namespace ClearOfficeTempFile
                     fileList.Wait();
                     AddToDataGrid(fileList.Result.Where((n) =>
                     {
-                        return Path.GetFileName(n).StartsWith("~$");
+                        //return Path.GetFileName(n).StartsWith("~$");
+                        return Path.GetFileName(n).StartsWith("~");
                     }));
                     ChangeButton();
                 }

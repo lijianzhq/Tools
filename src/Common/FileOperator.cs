@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using Microsoft.VisualBasic.Devices;
+using Microsoft.VisualBasic.FileIO;
 
 namespace Common
 {
@@ -32,13 +33,13 @@ namespace Common
                             String[] fileTypes = fileType.Split(',');
                             foreach (String item in fileTypes)
                             {
-                                String[] files = Directory.GetFiles(path, item, SearchOption.AllDirectories);
+                                String[] files = Directory.GetFiles(path, item, System.IO.SearchOption.AllDirectories);
                                 fileList.AddRange(files);
                             }
                         }
                         else
                         {
-                            String[] files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
+                            String[] files = Directory.GetFiles(path, "*", System.IO.SearchOption.AllDirectories);
                             fileList.AddRange(files);
                         }
                         return fileList;
@@ -98,6 +99,11 @@ namespace Common
         {
             Computer myComputer = new Computer();
             myComputer.FileSystem.RenameFile(filePath, newName);
+        }
+
+        public static void RemoveFileToRecycleBin(String filePath)
+        {
+            FileSystem.DeleteFile(filePath, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
         }
     }
 }
