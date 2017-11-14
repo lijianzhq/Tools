@@ -9,15 +9,15 @@ using System.IO;
 using Common;
 using DreamCube.Foundation.Log;
 
-namespace ClearOfficeTempFile
+namespace ClearTempFile
 {
-    class ClearOfficeTempFileOperator : FileOperator
+    class ClearTempFileFileOperator : FileOperator
     {
         public event EventHandler<ClearedEventArgs> Converted;
 
         public String Path { get; protected set; }
 
-        public ClearOfficeTempFileOperator(String path)
+        public ClearTempFileFileOperator(String path)
         {
             this.Path = path;
         }

@@ -7,8 +7,8 @@
     <ProjectGuid>{EAFE43DE-9483-4073-B2CE-36FA4ED9EDFD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClearOfficeTempFile</RootNamespace>
-    <AssemblyName>ClearOfficeTempFile</AssemblyName>
+    <RootNamespace>ClearTempFile</RootNamespace>
+    <AssemblyName>ClearTempFile</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClearOfficeTempFileOperator.cs" />
+    <Compile Include="ClearTempFileFileOperator.cs" />
     <Compile Include="ClearedEventArgs.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -73,6 +73,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

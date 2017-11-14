@@ -12,11 +12,11 @@ using System.Windows.Forms;
 using Common;
 using DreamCube.Foundation.Log;
 
-namespace ClearOfficeTempFile
+namespace ClearTempFile
 {
     public partial class MainForm : Form
     {
-        private ClearOfficeTempFileOperator fileOperator = null;
+        private ClearTempFileFileOperator fileOperator = null;
         private IEnumerable<String> waitForDeleteFiles = null;
 
         public MainForm()
@@ -102,13 +102,14 @@ namespace ClearOfficeTempFile
             {
                 try
                 {
-                    fileOperator = new ClearOfficeTempFile.ClearOfficeTempFileOperator(txtPath);
+                    fileOperator = new ClearTempFile.ClearTempFileFileOperator(txtPath);
                     Task<IEnumerable<String>> fileList = fileOperator.GetAllFilesAsync();
                     fileList.Wait();
                     AddToDataGrid(fileList.Result.Where((n) =>
                     {
                         //return Path.GetFileName(n).StartsWith("~$");
-                        return Path.GetFileName(n).StartsWith("~");
+                        String fileName = Path.GetFileName(n);
+                        return fileName.StartsWith("~") || fileName.EndsWith(".suo");
                     }));
                     ChangeButton();
                 }
@@ -146,7 +147,7 @@ namespace ClearOfficeTempFile
         private void AddToDataGrid(IEnumerable<String> fileList)
         {
             waitForDeleteFiles = fileList;
-            if(fileList!=null && fileList.Count()>0)
+            if (fileList != null && fileList.Count() > 0)
             {
                 this.BeginInvoke(new Action(() =>
                 {

@@ -1,4 +1,4 @@
-﻿namespace ClearOfficeTempFile
+﻿namespace ClearTempFile
 {
     partial class MainForm
     {
