@@ -113,7 +113,7 @@
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
-            this.Text = "移除office~$这种临时文件";
+            this.Text = "移除临时文件小工具";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
