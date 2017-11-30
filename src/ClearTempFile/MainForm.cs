@@ -109,7 +109,10 @@ namespace ClearTempFile
                     {
                         //return Path.GetFileName(n).StartsWith("~$");
                         String fileName = Path.GetFileName(n);
-                        return fileName.StartsWith("~") || fileName.EndsWith(".suo");
+                        //~开始的是office的一些碎片文件
+                        //.suo文件是vs解决方案生成的一些本地缓存文件
+                        //0.tmp文件是svn生成的一些版本文件
+                        return fileName.StartsWith("~") || fileName.EndsWith(".suo") || fileName.EndsWith("0.tmp");
                     }));
                     ChangeButton();
                 }
