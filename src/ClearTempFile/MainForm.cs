@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
@@ -98,6 +100,13 @@ namespace ClearTempFile
         private void DoFindAllFile()
         {
             String txtPath = txt_Path.Text;
+            String configFileExtesion = ConfigurationManager.AppSettings["tempFileExtention"];
+            String[] regexItems = configFileExtesion.Split(';');
+            List<Regex> regexList = new List<Regex>();
+            foreach (String item in regexItems)
+            {
+                regexList.Add(new Regex(item));
+            }
             Task.Run(() =>
             {
                 try
@@ -112,7 +121,17 @@ namespace ClearTempFile
                         //~开始的是office的一些碎片文件
                         //.suo文件是vs解决方案生成的一些本地缓存文件
                         //0.tmp文件是svn生成的一些版本文件
-                        return fileName.StartsWith("~") || fileName.EndsWith(".suo") || fileName.EndsWith("0.tmp");
+                        //return fileName.StartsWith("~") || fileName.EndsWith(".suo") || fileName.EndsWith("0.tmp");
+                        Boolean isMatch = false;
+                        foreach (Regex regexItem in regexList)
+                        {
+                            if (regexItem.IsMatch(n))
+                            {
+                                isMatch = true;
+                                break;
+                            }
+                        }
+                        return isMatch;
                     }));
                     ChangeButton();
                 }
