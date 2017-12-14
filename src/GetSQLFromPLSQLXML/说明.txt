@@ -1,0 +1,14 @@
+﻿例如：把example.xml文件中的 SQLSTR 字段的内容抽出来组成一个sql语句放到pl/sql去执行
+
+example.xml的sql语句是这样生成的：
+select 
+'CREATE USER '||t1.username||' PROFILE "DEFAULT" 
+    IDENTIFIED BY "guanliyuan" DEFAULT TABLESPACE "'||t1.default_tablespace||'" 
+    TEMPORARY TABLESPACE "'||t1.temporary_tablespace||'" 
+    ACCOUNT UNLOCK;
+  GRANT "AQ_ADMINISTRATOR_ROLE" TO '||t1.username||' WITH ADMIN OPTION;
+  GRANT "CONNECT" TO '||t1.username||' WITH ADMIN OPTION;
+  GRANT "DBA" TO '||t1.username||' WITH ADMIN OPTION;' 
+  as sqlstr
+from dba_users t1
+where username in('Temp11');
