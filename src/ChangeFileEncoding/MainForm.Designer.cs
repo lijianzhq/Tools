@@ -62,6 +62,7 @@
             this.txt_Path.Name = "txt_Path";
             this.txt_Path.Size = new System.Drawing.Size(378, 21);
             this.txt_Path.TabIndex = 1;
+            this.txt_Path.TextChanged += new System.EventHandler(this.txt_Path_TextChanged);
             // 
             // txt_Result
             // 
@@ -82,6 +83,7 @@
             this.label1.Size = new System.Drawing.Size(107, 12);
             this.label1.TabIndex = 3;
             this.label1.Text = "文件/文件夹路径：";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -123,6 +125,7 @@
             this.label4.Size = new System.Drawing.Size(89, 12);
             this.label4.TabIndex = 7;
             this.label4.Text = "目标文件类型：";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txt_FileType
             // 
@@ -131,6 +134,7 @@
             this.txt_FileType.Size = new System.Drawing.Size(378, 21);
             this.txt_FileType.TabIndex = 8;
             this.txt_FileType.Text = "*.txt,*.cs";
+            this.txt_FileType.TextChanged += new System.EventHandler(this.txt_FileType_TextChanged);
             // 
             // label5
             // 
@@ -140,6 +144,7 @@
             this.label5.Size = new System.Drawing.Size(221, 12);
             this.label5.TabIndex = 9;
             this.label5.Text = "（不设置，将会处理所有文件，请注意）";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 

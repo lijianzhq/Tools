@@ -134,5 +134,30 @@ namespace ChangeFileEncoding
                 e.Handled = true;      // 不再发出“噔”的声音
             }
         }
+
+        private void txt_FileType_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Path_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
