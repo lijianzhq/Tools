@@ -1,0 +1,1 @@
+﻿EF 数据源，edmx文件，增加表注释 ，列注释的documentation的xml属性

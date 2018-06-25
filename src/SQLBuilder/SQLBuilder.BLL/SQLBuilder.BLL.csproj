@@ -30,17 +30,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DreamCube.Foundation.Basic">
-      <HintPath>..\..\Libs\DreamCube.Foundation.Basic.dll</HintPath>
-    </Reference>
-    <Reference Include="DreamCube.Foundation.LogService">
-      <HintPath>..\..\Libs\DreamCube.Foundation.LogService.dll</HintPath>
-    </Reference>
-    <Reference Include="DreamCube.Foundation.Office">
-      <HintPath>..\..\..\..\..\Test\Test2017\trunk\Libs\DreamCube.Foundation.Office.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Mini.Foundation.Basic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Mini.Foundation.Basic.1.0.1\lib\net45\Mini.Foundation.Basic.dll</HintPath>
+    </Reference>
+    <Reference Include="Mini.Foundation.LogService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Mini.Foundation.LogService.1.0.1\lib\net40\Mini.Foundation.LogService.dll</HintPath>
+    </Reference>
+    <Reference Include="Mini.Foundation.Office, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Mini.Foundation.Office.1.0.1\lib\net46\Mini.Foundation.Office.dll</HintPath>
+    </Reference>
+    <Reference Include="Mini.Foundation.TraceService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Mini.Foundation.TraceService.1.0.1\lib\net40\Mini.Foundation.TraceService.dll</HintPath>
     </Reference>
     <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
@@ -55,6 +61,7 @@
       <HintPath>..\..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -64,9 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CellIndex.cs" />
+    <Compile Include="ColumnInfo.cs" />
     <Compile Include="ISqlBuilderService.cs" />
-    <Compile Include="SqlBuilderService.cs" />
+    <Compile Include="SqlServerSqlBuilderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TableInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

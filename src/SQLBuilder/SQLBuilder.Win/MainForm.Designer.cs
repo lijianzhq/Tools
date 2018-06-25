@@ -28,23 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_build = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_filePath = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_outputSql = new System.Windows.Forms.TextBox();
+            this.btn_createScript = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btn_build
-            // 
-            this.btn_build.Location = new System.Drawing.Point(520, 26);
-            this.btn_build.Name = "btn_build";
-            this.btn_build.Size = new System.Drawing.Size(75, 23);
-            this.btn_build.TabIndex = 0;
-            this.btn_build.Text = "生成";
-            this.btn_build.UseVisualStyleBackColor = true;
-            this.btn_build.Click += new System.EventHandler(this.btn_build_Click);
             // 
             // label1
             // 
@@ -55,12 +45,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Excel文件路径：";
             // 
-            // textBox1
+            // txt_filePath
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(401, 21);
-            this.textBox1.TabIndex = 2;
+            this.txt_filePath.Location = new System.Drawing.Point(113, 27);
+            this.txt_filePath.Name = "txt_filePath";
+            this.txt_filePath.Size = new System.Drawing.Size(526, 21);
+            this.txt_filePath.TabIndex = 2;
+            this.txt_filePath.Text = "templates\\01-create.xlsx";
             // 
             // panel1
             // 
@@ -80,15 +71,25 @@
             this.txt_outputSql.Size = new System.Drawing.Size(651, 253);
             this.txt_outputSql.TabIndex = 0;
             // 
+            // btn_createScript
+            // 
+            this.btn_createScript.Location = new System.Drawing.Point(14, 60);
+            this.btn_createScript.Name = "btn_createScript";
+            this.btn_createScript.Size = new System.Drawing.Size(93, 23);
+            this.btn_createScript.TabIndex = 4;
+            this.btn_createScript.Text = "创建脚本";
+            this.btn_createScript.UseVisualStyleBackColor = true;
+            this.btn_createScript.Click += new System.EventHandler(this.btn_createScript_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 342);
+            this.Controls.Add(this.btn_createScript);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_filePath);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_build);
             this.Name = "MainForm";
             this.Text = "SQLBuilder";
             this.panel1.ResumeLayout(false);
@@ -99,12 +100,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_build;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_filePath;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txt_outputSql;
+        private System.Windows.Forms.Button btn_createScript;
     }
 }
 
