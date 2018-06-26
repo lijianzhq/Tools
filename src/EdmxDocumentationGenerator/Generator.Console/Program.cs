@@ -24,11 +24,17 @@ namespace Generator.ConsoleTool
             //                                  "Oracle.Generator.dll",
             //                                  "",
             //                                  @"D:\01.Work\Test\Test2017\trunk\GenerateEntity\Model_MQCSBUS.edmx");
-            Boolean result = tool.TryGenerate(@"D:\01.Work\Test\Test2017\trunk\GenerateEntity\MQCSBUS_Entity\MQCSBUS.edmx",
-                                              @"DATA SOURCE=172.26.136.162:1521/KFMQCS;PASSWORD=MQCSBUS;PERSIST SECURITY INFO=True;USER ID=MQCSBUS",
+            //Boolean result = tool.TryGenerate(@"D:\01.Work\Test\Test2017\trunk\GenerateEntity\MQCSBUS_Entity\MQCSBUS.edmx",
+            //                                  @"DATA SOURCE=172.26.136.162:1521/KFMQCS;PASSWORD=MQCSBUS;PERSIST SECURITY INFO=True;USER ID=MQCSBUS",
+            //                                  "Oracle.Generator.dll",
+            //                                  "",
+            //                                  @"D:\01.Work\Test\Test2017\trunk\GenerateEntity\MQCSBUS_Entity\MQCSBUS.edmx");
+
+            Boolean result = tool.TryGenerate(@"D:\01.Work\Test\Test2017\trunk\GenerateEntity\DB_Entity\DB.edmx",
+                                              @"DATA SOURCE=172.26.136.162:1521/KFMQCS;PASSWORD=DB;PERSIST SECURITY INFO=True;USER ID=DB",
                                               "Oracle.Generator.dll",
                                               "",
-                                              @"D:\01.Work\Test\Test2017\trunk\GenerateEntity\MQCSBUS_Entity\MQCSBUS.edmx");
+                                              @"D:\01.Work\Test\Test2017\trunk\GenerateEntity\DB_Entity\DB.edmx");
             if (!result)
                 Console.Read();
         }
