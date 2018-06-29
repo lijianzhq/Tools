@@ -28,7 +28,7 @@ namespace Generator.ConsoleTool
             return false;
         }
 
-        protected virtual BasicGenerator GetGenerateor(String edmxFileFullPath,
+        public virtual BasicGenerator GetGenerateor(String edmxFileFullPath,
                                                        String dbConnectionString,
                                                        String generatorAssemblyFileFullPath,
                                                        String generatorTypeFulleName = "",

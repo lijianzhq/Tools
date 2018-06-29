@@ -21,7 +21,7 @@ namespace Oracle.Generator
             this._connection.Open();
         }
 
-        protected override string GetTableDocumentation(string tableName)
+        public override string GetTableDocumentation(string tableName)
         {
             String sql = "select comments from user_tab_comments where table_name = :TABLENAME";
             using (OracleCommand command = new OracleCommand(sql, this._connection))
@@ -31,7 +31,7 @@ namespace Oracle.Generator
             }
         }
 
-        protected override string GetColumnDocumentation(string tableName, string columnName)
+        public override string GetColumnDocumentation(string tableName, string columnName)
         {
             String sql = "select comments from user_col_comments where table_name = :TABLENAME and column_name = :COLUMNNAME";
             using (OracleCommand command = new OracleCommand(sql, this._connection))

@@ -21,7 +21,7 @@ namespace SqlServer.Generator
             this._connection.Open();
         }
 
-        protected override string GetTableDocumentation(string tableName)
+        public override string GetTableDocumentation(string tableName)
         {
             using (SqlCommand command = new SqlCommand(@" SELECT [value] 
                                                           FROM fn_listextendedproperty (
@@ -37,7 +37,7 @@ namespace SqlServer.Generator
             }
         }
 
-        protected override string GetColumnDocumentation(string tableName, string columnName)
+        public override string GetColumnDocumentation(string tableName, string columnName)
         {
             using (SqlCommand command = new SqlCommand(@"SELECT [value] 
                                                          FROM fn_listextendedproperty (

@@ -153,7 +153,7 @@ namespace Generator
         /// </summary>
         /// <param name="tableName"></param>
         /// <returns></returns>
-        protected abstract String GetTableDocumentation(String tableName);
+        public abstract String GetTableDocumentation(String tableName);
 
         /// <summary>
         /// 获取列的注释
@@ -161,6 +161,6 @@ namespace Generator
         /// <param name="tableName"></param>
         /// <param name="columnName"></param>
         /// <returns></returns>
-        protected abstract String GetColumnDocumentation(String tableName, String columnName);
+        public abstract String GetColumnDocumentation(String tableName, String columnName);
     }
 }
