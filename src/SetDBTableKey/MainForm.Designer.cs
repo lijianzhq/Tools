@@ -36,12 +36,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btn_setTableKey = new System.Windows.Forms.Button();
             this.txt_Log = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 33);
+            this.label1.Location = new System.Drawing.Point(27, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 12);
             this.label1.TabIndex = 0;
@@ -49,7 +51,7 @@
             // 
             // txt_connectionStr
             // 
-            this.txt_connectionStr.Location = new System.Drawing.Point(126, 30);
+            this.txt_connectionStr.Location = new System.Drawing.Point(110, 12);
             this.txt_connectionStr.Multiline = true;
             this.txt_connectionStr.Name = "txt_connectionStr";
             this.txt_connectionStr.Size = new System.Drawing.Size(644, 49);
@@ -59,7 +61,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(126, 93);
+            this.textBox2.Location = new System.Drawing.Point(110, 75);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 3;
@@ -67,7 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(79, 97);
+            this.label2.Location = new System.Drawing.Point(63, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 2;
@@ -75,7 +77,7 @@
             // 
             // txt_ID
             // 
-            this.txt_ID.Location = new System.Drawing.Point(314, 93);
+            this.txt_ID.Location = new System.Drawing.Point(298, 75);
             this.txt_ID.Name = "txt_ID";
             this.txt_ID.Size = new System.Drawing.Size(100, 21);
             this.txt_ID.TabIndex = 5;
@@ -84,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(255, 97);
+            this.label3.Location = new System.Drawing.Point(239, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 4;
@@ -92,7 +94,7 @@
             // 
             // btn_setTableKey
             // 
-            this.btn_setTableKey.Location = new System.Drawing.Point(431, 91);
+            this.btn_setTableKey.Location = new System.Drawing.Point(415, 73);
             this.btn_setTableKey.Name = "btn_setTableKey";
             this.btn_setTableKey.Size = new System.Drawing.Size(75, 23);
             this.btn_setTableKey.TabIndex = 6;
@@ -102,31 +104,43 @@
             // 
             // txt_Log
             // 
-            this.txt_Log.Location = new System.Drawing.Point(126, 152);
+            this.txt_Log.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txt_Log.Location = new System.Drawing.Point(0, 133);
             this.txt_Log.Multiline = true;
             this.txt_Log.Name = "txt_Log";
             this.txt_Log.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_Log.Size = new System.Drawing.Size(644, 57);
+            this.txt_Log.Size = new System.Drawing.Size(833, 305);
             this.txt_Log.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txt_connectionStr);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btn_setTableKey);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.txt_ID);
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(833, 133);
+            this.panel1.TabIndex = 8;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 221);
+            this.ClientSize = new System.Drawing.Size(833, 438);
             this.Controls.Add(this.txt_Log);
-            this.Controls.Add(this.btn_setTableKey);
-            this.Controls.Add(this.txt_ID);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txt_connectionStr);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "设置数据库表主键";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,6 +156,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_setTableKey;
         private System.Windows.Forms.TextBox txt_Log;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
