@@ -23,7 +23,7 @@ namespace SqlServer.Generator
 
         public override string GetTableDocumentation(string tableName)
         {
-            using (SqlCommand command = new SqlCommand(@" SELECT [value] 
+            using (SqlCommand command = new SqlCommand(@"SELECT [value] 
                                                           FROM fn_listextendedproperty (
                                                                 NULL, 
                                                                 'schema', 'dbo', 

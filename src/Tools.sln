@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorPicker.UI", "ColorPick
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckNetVersion", "CheckNetVersion\CheckNetVersion.csproj", "{191D700A-6CCD-4042-AEEF-DF5661B51F5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetDBTableKey", "SetDBTableKey\SetDBTableKey.csproj", "{FAD8D830-B14B-41A1-833E-13AC8AB1E897}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -321,6 +323,22 @@ Global
 		{191D700A-6CCD-4042-AEEF-DF5661B51F5B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{191D700A-6CCD-4042-AEEF-DF5661B51F5B}.Release|x86.ActiveCfg = Release|Any CPU
 		{191D700A-6CCD-4042-AEEF-DF5661B51F5B}.Release|x86.Build.0 = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.Debug|x86.Build.0 = Debug|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.NET20|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.NET20|Any CPU.Build.0 = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.NET20|x86.ActiveCfg = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.NET20|x86.Build.0 = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.NET40|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.NET40|Any CPU.Build.0 = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.NET40|x86.ActiveCfg = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.NET40|x86.Build.0 = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.Release|x86.ActiveCfg = Release|Any CPU
+		{FAD8D830-B14B-41A1-833E-13AC8AB1E897}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
