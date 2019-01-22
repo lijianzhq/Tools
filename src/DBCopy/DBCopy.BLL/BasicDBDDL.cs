@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.Common;
 
-namespace SetDBTableKey.BLL
+namespace DBCopy.BLL
 {
     public abstract class BasicDBDDL
     {
@@ -60,9 +58,9 @@ namespace SetDBTableKey.BLL
         /// </summary>
         /// <param name="tableName"></param>
         /// <param name="colName"></param>
-        public virtual void SetTablePrimaryKey(String tableName, String colName)
+        public virtual void CreateTablePrimaryKey(String tableName, String colName)
         {
-            var sql = Get_SetTablePrimaryKeySql(tableName, colName);
+            var sql = Get_CreateTablePrimaryKeySql(tableName, colName);
             using (var conn = GetConnection(true))
             {
                 var cmd = CreateCommand(sql, conn);
@@ -116,6 +114,7 @@ namespace SetDBTableKey.BLL
         public virtual IList<DBTableCol> GetTableAllCols(String tableName)
         {
             var sql = Get_GetTableAllColsSql(tableName);
+            if (String.IsNullOrEmpty(sql)) return null;
             var list = new List<DBTableCol>();
             using (var conn = GetConnection(true))
             {
@@ -173,6 +172,98 @@ namespace SetDBTableKey.BLL
             return list;
         }
 
+        /// <summary>
+        /// 获取数据表索引
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
+        public virtual List<TableIndex> GetTableIndices(String tableName)
+        {
+            var sql = Get_GetTableIndexSql(tableName);
+            var tbIndexList = new List<TableIndex>();
+            var tbIndexListTemp = new List<TableIndex>();
+            using (var conn = GetConnection(true))
+            {
+                var cmd = CreateCommand(sql, conn);
+                var adapter = DbProviderFactory.CreateDataAdapter();
+                adapter.SelectCommand = cmd;
+                var dbset = new DataSet();
+                adapter.Fill(dbset);
+                if (dbset?.Tables != null && dbset?.Tables.Count > 0)
+                {
+                    var table = dbset?.Tables[0];
+                    for (var i = 0; i < table.Rows.Count; i++)
+                    {
+                        var row = table.Rows[i];
+                        var indexName = Convert.ToString(row["indexname"]);
+                        var tablename = Convert.ToString(row["tablename"]);
+                        var indexcolumn = Convert.ToString(row["indexcolumn"]);
+                        var indid = Convert.ToString(row["indid"]);
+                        tbIndexListTemp.Add(new TableIndex()
+                        {
+                            ColumnNames = new List<string>() { indexcolumn },
+                            IsUnique = true,
+                            Name = indexName,
+                            TableName = tablename,
+                        });
+                    }
+                }
+            }
+            var groups = tbIndexListTemp.GroupBy(it => it.Name, it => it);
+            foreach (var g in groups)
+            {
+                tbIndexList.Add(new TableIndex()
+                {
+                    IsUnique = true,
+                    Name = g.Key,
+                    TableName = g.FirstOrDefault()?.TableName,
+                    ColumnNames = g.Select(it => it.ColumnNames[0]).ToList()
+                });
+            }
+            return tbIndexList;
+        }
+
+        /// <summary>
+        /// 创建表索引
+        /// </summary>
+        /// <param name="tbIndex"></param>
+        /// <returns></returns>
+        public virtual void CreateTableIndex(TableIndex tbIndex)
+        {
+            var sql = Get_CreateTableIndexSql(tbIndex);
+            using (var conn = GetConnection(true))
+            {
+                var cmd = CreateCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// 删除重复数据
+        /// </summary>
+        public virtual Int32 DeleteDuplication(TableIndex tableIndex)
+        {
+            //delete PS_RESOURCE t1
+            //where id in (
+            //select min(id) from PS_RESOURCE t2
+            //group by PLANT_CODE,RESOURCE_CODE
+            //  having(count(*)) > 1
+            //);
+            if (tableIndex == null || tableIndex.ColumnNames == null || tableIndex.ColumnNames.Count == 0) return 0;
+            var conditions = String.Join(",", tableIndex.ColumnNames.Select(it => it));
+            var sql = String.Format(@"delete {0} t1
+                                      where id in (
+                                      select min(id) from {0} t2
+                                      group by {1}
+                                        having(count(*)) > 1
+                                      )", tableIndex.TableName, conditions);
+            using (var conn = GetConnection(true))
+            {
+                var cmd = CreateCommand(sql, conn);
+                return cmd.ExecuteNonQuery();
+            }
+        }
+
         #region "sql相关"
 
         /// <summary>
@@ -189,12 +280,26 @@ namespace SetDBTableKey.BLL
         public abstract String Get_GetTablePrimaryKeysSql(String tableName);
 
         /// <summary>
+        /// 获取数据库表索引
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
+        public abstract String Get_GetTableIndexSql(String tableName);
+
+        /// <summary>
+        /// 创建表索引
+        /// </summary>
+        /// <param name="tbIndex"></param>
+        /// <returns></returns>
+        public abstract String Get_CreateTableIndexSql(TableIndex tbIndex);
+
+        /// <summary>
         /// 设置表主键的sql
         /// </summary>
         /// <param name="tableName"></param>
         /// <param name="colName"></param>
         /// <returns></returns>
-        public abstract String Get_SetTablePrimaryKeySql(String tableName, String colName);
+        public abstract String Get_CreateTablePrimaryKeySql(String tableName, String colName);
 
         /// <summary>
         /// 获取表的所有列的sql
