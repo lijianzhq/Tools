@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using DBCopy.BLL;
 using Oracle.ManagedDataAccess.Client;
+using System.Collections.Concurrent;
+using System.Threading;
 
 namespace DBCopy.Win
 {
@@ -55,8 +57,9 @@ namespace DBCopy.Win
                     {
                         try
                         {
-                            targetDB.CreateTableIndex(index);
-                            ShowLogMsg($"同步[{index.Name}]成功");
+                            //targetDB.CreateTableIndex(index);
+                            //ShowLogMsg($"同步[{index.Name}]成功");
+                            ShowLogMsg(targetDB.Get_CreateTableIndexSql(index) + ";");
                         }
                         catch (Exception ex)
                         {
@@ -90,6 +93,61 @@ namespace DBCopy.Win
             this.Invoke(new Action(() =>
             {
                 txt_Log.Text += msg + Environment.NewLine;
+            }));
+        }
+
+        private void btn_setTableKey_Click(object sender, EventArgs e)
+        {
+            var connectionString = txt_connectionStr.Text;
+            var primaryKeyName = txt_ID.Text;
+            btn_setTableKey.Enabled = false;
+
+            Int64 totalDoCount = 0;//总处理数
+            var successTables = new ConcurrentBag<String>();
+            var hasKeysTables = new ConcurrentBag<String>();
+            Task.Factory.StartNew(new Action(() =>
+            {
+                ShowLogMsg($"start...");
+                var db = new BLL.OracleDBDDL(connectionString);
+                var tables = db.GetAllTables();
+                var count = tables.Count;
+                ShowLogMsg($"table count:[{count}]");
+                //并行处理所有表即可
+                tables?.AsParallel().ForAll(it =>
+                {
+                    var tableName = it.TableName;
+                    try
+                    {
+                        var tablePrimarykeys = db.GetTablePrimaryKeys(it.TableName);
+                        //判断表是否已经有主键了
+                        if (tablePrimarykeys == null || tablePrimarykeys.Count == 0)
+                        {
+                            var allColumns = db.GetTableAllCols(it.TableName);
+                            //判断指定的主键列是否存在
+                            if (allColumns.Where(col => String.Equals(col.Name, primaryKeyName, StringComparison.CurrentCultureIgnoreCase)).SingleOrDefault() != null)
+                            {
+                                db.CreateTablePrimaryKey(it.TableName, primaryKeyName);
+                                successTables.Add(it.TableName);
+                            }
+                        }
+                        else
+                        {
+                            hasKeysTables.Add(it.TableName);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ShowLogMsg($"when do with table[{tableName}],an error occur,message:{ex?.Message}");
+                    }
+                    finally
+                    {
+                        Interlocked.Increment(ref totalDoCount);
+                        if (Interlocked.Read(ref totalDoCount) == count)
+                        {
+                            ShowLogMsg($"已处理完成，总表数：[{count}],已经有主键的表数：[{hasKeysTables.Count()}],成功新建主键表数：[{successTables.Count()}]");
+                        }
+                    }
+                });
             }));
         }
     }
