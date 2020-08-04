@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeFileEncoding", "ChangeFileEncoding\ChangeFileEncoding.csproj", "{539F4E1D-C5FC-4BEE-935D-8C13F2E497BE}"
 EndProject
@@ -58,6 +58,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mini.Framework.Database", "..\..\Mini\Framework\Mini.Framework.Database\Mini.Framework.Database.csproj", "{A14BD4F0-B95D-4C0D-96B7-2B1B11243A0D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mini.Foundation.Basic", "..\..\Mini\Foundation\Mini.Foundation.Basic\Mini.Foundation.Basic.csproj", "{CA353966-A454-40E1-93CF-86390CBC4DC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForm.Common", "Apps.Common\WinForm\WinForm.Common\WinForm.Common.csproj", "{0F080006-623F-433B-9793-92959407AF8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -415,6 +417,22 @@ Global
 		{CA353966-A454-40E1-93CF-86390CBC4DC8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA353966-A454-40E1-93CF-86390CBC4DC8}.Release|x86.ActiveCfg = Release|Any CPU
 		{CA353966-A454-40E1-93CF-86390CBC4DC8}.Release|x86.Build.0 = Release|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.Debug|x86.Build.0 = Debug|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.NET20|Any CPU.ActiveCfg = NET20|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.NET20|Any CPU.Build.0 = NET20|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.NET20|x86.ActiveCfg = NET20|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.NET20|x86.Build.0 = NET20|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.NET40|Any CPU.ActiveCfg = NET40|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.NET40|Any CPU.Build.0 = NET40|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.NET40|x86.ActiveCfg = NET40|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.NET40|x86.Build.0 = NET40|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.Release|x86.ActiveCfg = Release|Any CPU
+		{0F080006-623F-433B-9793-92959407AF8F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

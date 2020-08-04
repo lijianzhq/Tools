@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4901082D-CE62-4FE6-8248-C900B0F50A41}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DreamCube.Apps.Common.WinForm.Controls</RootNamespace>
+    <AssemblyName>DreamCube.Apps.Common.WinForm.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NET2|AnyCPU'">
+    <OutputPath>bin\NET2\</OutputPath>
+    <DefineConstants>NET2</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NET4|AnyCPU'">
+    <OutputPath>bin\NET4\</OutputPath>
+    <DefineConstants>NET4</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NET20|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\NET20\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\DreamCube.Apps.Common.WinForm.Controls.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NET40|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\NET40\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\DreamCube.Apps.Common.WinForm.Controls.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;D:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;D:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar.Design, Version=10.0.0.0, Culture=neutral, PublicKeyToken=2c9ff1fddc42653c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Imports\Net2\DevComponents.DotNetBar.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=10.0.0.0, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Imports\Net2\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComboBoxHelper.cs" />
+    <Compile Include="ControlState.cs" />
+    <Compile Include="DataGridViewCtrl\BaseDataGridViewCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\ColumnType.cs" />
+    <Compile Include="DataGridViewCtrl\DataGridViewCtrl_DonetBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\DataGridViewCtrl_DonetBar.Designer.cs">
+      <DependentUpon>DataGridViewCtrl_DonetBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\DataGridViewCtrl_WinForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\DataGridViewCtrl_WinForm.Designer.cs">
+      <DependentUpon>DataGridViewCtrl_WinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\DbProviderType.cs" />
+    <Compile Include="DataGridViewCtrl\DeleteRowEventArgs.cs" />
+    <Compile Include="DataGridViewCtrl\FormatDataEventArgs.cs" />
+    <Compile Include="DataGridViewCtrl\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\Page\PageCP_DonetBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\Page\PageCtrlEventArgs.cs" />
+    <Compile Include="DataGridViewCtrl\Page\PageCP_WinForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\Page\PageCP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\ToolBar\IToolBar.cs" />
+    <Compile Include="DataGridViewCtrl\ToolBar\ToolBarCtrl_WinForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\ToolBar\ToolBarCtrl_WinForm.Designer.cs">
+      <DependentUpon>ToolBarCtrl_WinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\EmptyDataRow.cs" />
+    <Compile Include="ControlHelper.cs" />
+    <Compile Include="DataGridViewCtrl\DataGridViewCheckBoxHeaderEventArgs.cs" />
+    <Compile Include="DataGridViewCtrl\DataGridViewCheckBoxHeaderCell .cs" />
+    <Compile Include="DataGridViewCtrl\DataGridViewCheckBoxHeaderHelper.cs" />
+    <Compile Include="DrawHelper.cs" />
+    <Compile Include="MessageBoxHelper.cs" />
+    <Compile Include="IpAddressInput.cs" />
+    <Compile Include="IpAddressInput.Designer.cs">
+      <DependentUpon>IpAddressInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\Page\PageCtrl_WinForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\Page\PageCtrl_WinForm.Designer.cs">
+      <DependentUpon>PageCtrl_WinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\Page\PageCtrl_DonetBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\Page\pageCtrl_DonetBar.Designer.cs">
+      <DependentUpon>PageCtrl_DonetBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyDataGridView.cs" />
+    <Compile Include="Progress\ProgressBarWrapper.cs" />
+    <Compile Include="Progress\ProgressBarHelper.cs" />
+    <Compile Include="Progress\ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Progress\ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Progress\ProgressFormStyle.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TextBoxHelper.cs" />
+    <Compile Include="DataGridViewCtrl\ToolBar\ToolBar_DonetBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataGridViewCtrl\ToolBar\ToolBar_DonetBar.Designer.cs">
+      <DependentUpon>ToolBar_DonetBar.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataGridViewCtrl\数据显示控件.txt" />
+    <Content Include="Progress\进度条框.txt" />
+    <None Include="Resources\loadingCircle.gif" />
+    <None Include="Resources\hoverBackGround.jpg" />
+    <None Include="Resources\backGroundImage.jpg" />
+    <None Include="Resources\goto.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\edit.gif" />
+    <None Include="Resources\delete.gif" />
+    <None Include="Resources\up.png" />
+    <None Include="Resources\left.png" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataGridViewCtrl\BaseDataGridViewCtrl.resx">
+      <DependentUpon>BaseDataGridViewCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewCtrl\DataGridViewCtrl_DonetBar.resx">
+      <DependentUpon>DataGridViewCtrl_DonetBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewCtrl\DataGridViewCtrl_WinForm.resx">
+      <DependentUpon>DataGridViewCtrl_WinForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewCtrl\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewCtrl\ToolBar\ToolBarCtrl_WinForm.resx">
+      <DependentUpon>ToolBarCtrl_WinForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewCtrl\Page\PageCtrl_WinForm.resx">
+      <DependentUpon>PageCtrl_WinForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewCtrl\Page\pageCtrl_DonetBar.resx">
+      <DependentUpon>PageCtrl_DonetBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Progress\ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridViewCtrl\ToolBar\ToolBar_DonetBar.resx">
+      <DependentUpon>ToolBar_DonetBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Foundation\Foundation.Basic\Foundation.Basic.csproj">
+      <Project>{203C8B6E-0D5D-4BD9-983E-4B7BBA048567}</Project>
+      <Name>Foundation.Basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Framework\DataAccess\Framework.DataAccess.Basic\Framework.DataAccess.Basic.csproj">
+      <Project>{D3613952-49B3-4B61-B0A2-65E050AD24CD}</Project>
+      <Name>Framework.DataAccess.Basic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
