@@ -6,7 +6,7 @@ using System.Drawing;
 //自定义命名空间
 using DreamCube.Foundation.Basic.Win32API.API;
 using DreamCube.Foundation.Basic.Win32API.Enums;
-using DreamCube.WinForm.Common;
+//using DreamCube.WinForm.Common;
 
 namespace ColorPicker.UI
 {
@@ -70,7 +70,7 @@ namespace ColorPicker.UI
         /// </summary>
         private void PickeMousePointColor()
         {
-            ControlHelper.ControlInvoke(this, new Action<String>((s) =>
+            var delegateItem = new Action<String>((s) =>
             {
                 textBox1.Text = String.Format("{0},{1}", Control.MousePosition.X.ToString(), Control.MousePosition.Y.ToString());
                 Point pt = new Point(Control.MousePosition.X, Control.MousePosition.Y);
@@ -81,7 +81,15 @@ namespace ColorPicker.UI
                 user32.RegisterHotKey(Handle, 81, KeyModifiers.Ctrl, Keys.F);
                 user32.RegisterHotKey(Handle, 82, KeyModifiers.Ctrl, Keys.G);
                 if (timer != null) timer.Change(100, Timeout.Infinite);
-            }), "");
+            });
+            if (this.InvokeRequired)
+            {
+                this.Invoke(delegateItem, "");
+            }
+            else
+            {
+                delegateItem.Invoke("");
+            }
         }
 
         /// <summary>
@@ -101,7 +109,7 @@ namespace ColorPicker.UI
         /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show(this,"确定退出程序吗？", "退出提醒", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            if (MessageBox.Show(this, "确定退出程序吗？", "退出提醒", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
                 e.Cancel = true;
         }
 
