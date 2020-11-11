@@ -54,6 +54,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Conflict_Log = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -69,7 +70,7 @@
             this.txt_Log.Multiline = true;
             this.txt_Log.Name = "txt_Log";
             this.txt_Log.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_Log.Size = new System.Drawing.Size(741, 115);
+            this.txt_Log.Size = new System.Drawing.Size(1172, 95);
             this.txt_Log.TabIndex = 8;
             // 
             // label1
@@ -86,10 +87,11 @@
             // 
             this.panel1.Controls.Add(this.txt_Log);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txt_Conflict_Log);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 219);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(741, 127);
+            this.panel1.Size = new System.Drawing.Size(1172, 204);
             this.panel1.TabIndex = 11;
             // 
             // panel2
@@ -106,12 +108,12 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(741, 216);
+            this.panel2.Size = new System.Drawing.Size(1172, 216);
             this.panel2.TabIndex = 12;
             // 
             // btn_startCopy
             // 
-            this.btn_startCopy.Location = new System.Drawing.Point(597, 36);
+            this.btn_startCopy.Location = new System.Drawing.Point(896, 39);
             this.btn_startCopy.Name = "btn_startCopy";
             this.btn_startCopy.Size = new System.Drawing.Size(139, 59);
             this.btn_startCopy.TabIndex = 19;
@@ -124,19 +126,19 @@
             this.txt_targetDBConnStr.Location = new System.Drawing.Point(120, 148);
             this.txt_targetDBConnStr.Multiline = true;
             this.txt_targetDBConnStr.Name = "txt_targetDBConnStr";
-            this.txt_targetDBConnStr.Size = new System.Drawing.Size(439, 58);
+            this.txt_targetDBConnStr.Size = new System.Drawing.Size(757, 58);
             this.txt_targetDBConnStr.TabIndex = 18;
-            this.txt_targetDBConnStr.Text = resources.GetString("txt_targetDBConnStr.Text");
+            this.txt_targetDBConnStr.Text = "server=222.187.215.123;uid=aps;pwd=@midea2018@;database=APSDEV;Connect Timeout=36" +
+    "00";
             // 
             // txt_sourceDBConnStr
             // 
             this.txt_sourceDBConnStr.Location = new System.Drawing.Point(120, 36);
             this.txt_sourceDBConnStr.Multiline = true;
             this.txt_sourceDBConnStr.Name = "txt_sourceDBConnStr";
-            this.txt_sourceDBConnStr.Size = new System.Drawing.Size(439, 62);
+            this.txt_sourceDBConnStr.Size = new System.Drawing.Size(757, 62);
             this.txt_sourceDBConnStr.TabIndex = 17;
-            this.txt_sourceDBConnStr.Text = "server=10.16.90.157\\MSDEV;uid=aps;pwd=@midea2018@;database=apsdev;Connect Timeout" +
-    "=3600";
+            this.txt_sourceDBConnStr.Text = resources.GetString("txt_sourceDBConnStr.Text");
             // 
             // comb_targetDBType
             // 
@@ -204,7 +206,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(755, 375);
+            this.tabControl1.Size = new System.Drawing.Size(1186, 452);
             this.tabControl1.TabIndex = 20;
             // 
             // tabPage1
@@ -214,7 +216,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(747, 349);
+            this.tabPage1.Size = new System.Drawing.Size(1178, 426);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "同步唯一索引";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -226,7 +228,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(747, 349);
+            this.tabPage2.Size = new System.Drawing.Size(1060, 349);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "设置主键";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -243,7 +245,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(741, 133);
+            this.panel3.Size = new System.Drawing.Size(1054, 133);
             this.panel3.TabIndex = 10;
             // 
             // txt_connectionStr
@@ -315,14 +317,23 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(741, 343);
+            this.textBox1.Size = new System.Drawing.Size(1054, 343);
             this.textBox1.TabIndex = 9;
+            // 
+            // txt_Conflict_Log
+            // 
+            this.txt_Conflict_Log.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txt_Conflict_Log.Location = new System.Drawing.Point(0, 107);
+            this.txt_Conflict_Log.Multiline = true;
+            this.txt_Conflict_Log.Name = "txt_Conflict_Log";
+            this.txt_Conflict_Log.Size = new System.Drawing.Size(1172, 97);
+            this.txt_Conflict_Log.TabIndex = 10;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 375);
+            this.ClientSize = new System.Drawing.Size(1186, 452);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -367,6 +378,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Conflict_Log;
     }
 }
 

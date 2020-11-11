@@ -117,7 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="txt_sourceDBConnStr.Text" xml:space="preserve">
-    <value>Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.16.40.171)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = apsweb.midea.com)));User Id=aps;Password=aps;Pooling=True;Max Pool Size=200;Min Pool Size=10;Connection Lifetime=10;Connection Timeout=60;Incr Pool Size=5;Decr Pool Size=5</value>
-  </data>
 </root>

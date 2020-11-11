@@ -198,7 +198,7 @@ namespace DBCopy.BLL
                         var indexName = Convert.ToString(row["indexname"]);
                         var tablename = Convert.ToString(row["tablename"]);
                         var indexcolumn = Convert.ToString(row["indexcolumn"]);
-                        var indid = Convert.ToString(row["indid"]);
+                        //var indid = Convert.ToString(row["indid"]);
                         tbIndexListTemp.Add(new TableIndex()
                         {
                             ColumnNames = new List<string>() { indexcolumn },
@@ -251,9 +251,9 @@ namespace DBCopy.BLL
             //);
             if (tableIndex == null || tableIndex.ColumnNames == null || tableIndex.ColumnNames.Count == 0) return 0;
             var conditions = String.Join(",", tableIndex.ColumnNames.Select(it => it));
-            var sql = String.Format(@"delete {0} t1
+            var sql = String.Format(@"delete {0} 
                                       where id in (
-                                      select min(id) from {0} t2
+                                      select min(id) from {0} 
                                       group by {1}
                                         having(count(*)) > 1
                                       )", tableIndex.TableName, conditions);

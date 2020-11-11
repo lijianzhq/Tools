@@ -7,6 +7,7 @@ using DBCopy.BLL;
 using Oracle.ManagedDataAccess.Client;
 using System.Collections.Concurrent;
 using System.Threading;
+using System.Data.SqlClient;
 
 namespace DBCopy.Win
 {
@@ -19,6 +20,7 @@ namespace DBCopy.Win
 
         private void btn_startCopy_Click(object sender, EventArgs e)
         {
+            btn_startCopy.Enabled = false;
             var sourceDBType = comb_souceDBType.Text;
             var sourceDBConnectionStr = txt_sourceDBConnStr.Text;
             var targetDBType = comb_targetDBType.Text;
@@ -28,12 +30,14 @@ namespace DBCopy.Win
 
             Task.Factory.StartNew(new Action(() =>
             {
+                ShowLogMsg("开始同步数据库...");
                 CopyUniqueIndex(sourceDB, targetDB);
             })).ContinueWith(new Action<Task>((tsk) =>
             {
                 this.Invoke(new Action(() =>
                 {
                     ShowLogMsg("已经完成同步完成");
+                    btn_startCopy.Enabled = true;
                 }));
             }));
         }
@@ -46,7 +50,11 @@ namespace DBCopy.Win
         private void CopyUniqueIndex(BLL.BasicDBDDL sourceDB, BLL.BasicDBDDL targetDB)
         {
             var tables = sourceDB.GetAllTables();
-            //var tables = new List<DBTable>() { new DBTable() { TableName = "PS_RESOURCE" } };
+            //var tables = new List<DBTable>() { new DBTable() { TableName = "PS_CALENDAR_RESOURCE_SHIFTS" } };
+            this.Invoke(new Action(() =>
+            {
+                ShowLogMsg($"从源数据库成功获取到[{tables.Count()}]表");
+            }));
             tables?.ToList().ForEach(it =>
             {
                 var tbList = sourceDB.GetTableIndices(it.TableName);
@@ -57,22 +65,23 @@ namespace DBCopy.Win
                     {
                         try
                         {
-                            //targetDB.CreateTableIndex(index);
-                            //ShowLogMsg($"同步[{index.Name}]成功");
-                            ShowLogMsg(targetDB.Get_CreateTableIndexSql(index) + ";");
+                            targetDB.CreateTableIndex(index);
+                            ShowLogMsg($"同步[{index.Name}]成功");
+                            //ShowLogMsg(targetDB.Get_CreateTableIndexSql(index) + ";");
                         }
                         catch (Exception ex)
                         {
                             var oraEx = ex as OracleException;
-                            if (oraEx?.Number == 1452)
+                            var sqlEx = ex as SqlException;
+                            if (oraEx?.Number == 1452 || sqlEx.Number ==  1505)
                             {
                                 //数据重复了，执行删除重复数据逻辑
                                 //执行删除重复数据
-                                ShowLogMsg($"同步[{index.Name}]失败，数据重复。错误：[{ex.Message}]");
+                                ShowConflictLogMsg($"同步[{index.Name}]失败，数据重复。错误：[{ex.Message}]");
                                 var rowCount = targetDB.DeleteDuplication(index);
-                                ShowLogMsg($"删除重复数据[{rowCount}]条");
+                                ShowConflictLogMsg($"删除重复数据[{rowCount}]条");
                                 targetDB.CreateTableIndex(index);
-                                ShowLogMsg($"同步[{index.Name}]成功");
+                                ShowConflictLogMsg($"【重复】同步[{index.Name}]成功");
                             }
                             else
                             {
@@ -82,7 +91,7 @@ namespace DBCopy.Win
                     }
                     catch (Exception ex)
                     {
-                        ShowLogMsg($"同步[{index.Name}],[{cols}]失败，错误：[{ex.Message}]");
+                        ShowLogMsg($"【重复】同步[{index.Name}],[{cols}]失败，错误：[{ex.Message}]");
                     }
                 });
             });
@@ -93,6 +102,14 @@ namespace DBCopy.Win
             this.Invoke(new Action(() =>
             {
                 txt_Log.Text += msg + Environment.NewLine;
+            }));
+        }
+
+        private void ShowConflictLogMsg(String msg)
+        {
+            this.Invoke(new Action(() =>
+            {
+                txt_Conflict_Log.Text += msg + Environment.NewLine;
             }));
         }
 

@@ -52,7 +52,12 @@ namespace DBCopy.BLL
 
         public override string Get_GetTableIndexSql(string tableName)
         {
-            throw new NotImplementedException();
+            return String.Format(@"SELECT  t1.index_name indexname,t1.table_name tablename,t2.column_name indexcolumn FROM user_indexes t1
+                                    JOIN user_ind_columns t2 ON t1.index_name=t2.index_name
+                                    WHERE 1=1
+                                    AND t1.table_name='{0}'
+                                    AND t1.uniqueness = 'UNIQUE'", tableName);
+            //throw new NotImplementedException();
         }
 
         public override string Get_CreateTableIndexSql(TableIndex tbIndex)
