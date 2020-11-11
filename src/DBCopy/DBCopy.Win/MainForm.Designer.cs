@@ -32,6 +32,7 @@
             this.txt_Log = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_Conflict_Log = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_startCopy = new System.Windows.Forms.Button();
             this.txt_targetDBConnStr = new System.Windows.Forms.TextBox();
@@ -54,7 +55,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txt_Conflict_Log = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -93,6 +93,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1172, 204);
             this.panel1.TabIndex = 11;
+            // 
+            // txt_Conflict_Log
+            // 
+            this.txt_Conflict_Log.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txt_Conflict_Log.Location = new System.Drawing.Point(0, 107);
+            this.txt_Conflict_Log.Multiline = true;
+            this.txt_Conflict_Log.Name = "txt_Conflict_Log";
+            this.txt_Conflict_Log.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txt_Conflict_Log.Size = new System.Drawing.Size(1172, 97);
+            this.txt_Conflict_Log.TabIndex = 10;
             // 
             // panel2
             // 
@@ -228,7 +238,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1060, 349);
+            this.tabPage2.Size = new System.Drawing.Size(1178, 426);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "设置主键";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -245,7 +255,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1054, 133);
+            this.panel3.Size = new System.Drawing.Size(1172, 133);
             this.panel3.TabIndex = 10;
             // 
             // txt_connectionStr
@@ -317,17 +327,8 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(1054, 343);
+            this.textBox1.Size = new System.Drawing.Size(1172, 420);
             this.textBox1.TabIndex = 9;
-            // 
-            // txt_Conflict_Log
-            // 
-            this.txt_Conflict_Log.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txt_Conflict_Log.Location = new System.Drawing.Point(0, 107);
-            this.txt_Conflict_Log.Multiline = true;
-            this.txt_Conflict_Log.Name = "txt_Conflict_Log";
-            this.txt_Conflict_Log.Size = new System.Drawing.Size(1172, 97);
-            this.txt_Conflict_Log.TabIndex = 10;
             // 
             // MainForm
             // 
