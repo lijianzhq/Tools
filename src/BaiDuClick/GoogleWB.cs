@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -32,13 +33,28 @@ namespace BaiDuClick
             _logger = new Logger(this.txt_Log);
 
             var setting = new CefSharp.WinForms.CefSettings();
+            var dataPath  = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dataPath");
             var agents = new String[] {
             "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36",
             "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0",
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36 OPR/74.0.3911.218"
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36 OPR/74.0.3911.218",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.54",
             };
-            setting.UserAgent = agents[0];
+            setting.UserAgent = agents[4];
+
+            var logDir = Path.Combine(dataPath, "log");
+            if (!Directory.Exists(logDir))
+            {
+                Directory.CreateDirectory(logDir);
+            }
+            setting.LogFile = Path.Combine(logDir, $"{ DateTime.Now.ToString("yyyy-MM-dd")}.log");
+            var cachDir = Path.Combine(dataPath, "cache");
+            if (!Directory.Exists(cachDir))
+            {
+                Directory.CreateDirectory(cachDir);
+            }
+            setting.CachePath = cachDir; //设置cache目录
             CefSharp.Cef.Initialize(setting, true);
 
             //开始按钮
@@ -48,6 +64,7 @@ namespace BaiDuClick
         private void btn_start_Click(object sender, EventArgs e)
         {
             var chWB = new CefSharp.WinForms.ChromiumWebBrowser();
+            chWB.LifeSpanHandler = new CefLifeSpanHandler();
             panel2.Controls.Add(chWB);
             chWB.Dock = DockStyle.Fill;
             chWB.FrameLoadEnd += ChWB_FrameLoadEnd;
@@ -64,7 +81,7 @@ namespace BaiDuClick
             {
                 this._isSearching = false;
                 _timerClickAD = new System.Windows.Forms.Timer();
-                _timerClickAD.Tick += _timerClickAD;
+                _timerClickAD.Tick += _timerClickAD_Tick;
                 //等待5秒钟，加载完毕，再点击广告
                 _timerClickAD.Interval = 1000 * 5;
                 _timerClickAD.Start();
@@ -129,11 +146,15 @@ namespace BaiDuClick
                     var response = t.Result;
                     var resultMsg = response.Success ? (response.Result ?? "null") : response.Message;
                     //this._logger.Debug($"JS ReturnVal：{resultMsg}");
-                    _timerClose = new System.Windows.Forms.Timer();
-                    _timerClose.Tick += _timerClose_Tick;
-                    //等待5秒钟，加载完毕，执行关闭程序
-                    _timerClickAD.Interval = 1000 * 5;
-                    _timerClickAD.Start();
+                    this.Invoke(new Action(() =>
+                    {
+                        _timerClose = new System.Windows.Forms.Timer();
+                        _timerClose.Tick += _timerClose_Tick;
+                        ////等待5秒钟，加载完毕，执行关闭程序
+                        _timerClose.Interval = 1000 * 5;
+                        _timerClose.Start();
+
+                    }));
                 }
             });
         }
@@ -150,7 +171,6 @@ namespace BaiDuClick
             {
                 if (_browser != null)
                 {
-                    _browser.CloseDevTools();
                     _browser.CloseBrowser(true);
                 }
             }
@@ -160,9 +180,7 @@ namespace BaiDuClick
             {
                 if (_browser != null)
                 {
-                    var cookieManager = CefSharp.Cef.GetGlobalCookieManager();
-                    cookieManager.DeleteCookies();
-                    _browser.Dispose();
+                    //_browser.Dispose();
                     Cef.Shutdown();
                 }
             }
